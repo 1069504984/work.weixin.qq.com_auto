@@ -1,0 +1,7 @@
+add_member:
+  - {by: XPATH, local: //*[test()='添加成员'], action: click}
+  - {by: ID, local: username, action: send_keys, name: ${name}}
+  - {by: ID, local: memberAdd_acctid, action: send_keys, acct_id: ${acct_id}}
+  - {by: ID, local: memberAdd_phone, action: send_keys, phone: ${phone}}
+  - {by: ID, local: memberAdd_mai, action: send_keys, mail: ${mail}}
+  - {by: XPATH, local: //*[text()="保存"], action: click}

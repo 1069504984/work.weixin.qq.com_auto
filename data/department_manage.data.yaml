@@ -1,0 +1,17 @@
+test_add_dept:
+  -
+    - 部门2
+    - 530大头帮
+    - True
+  -
+    - 部门3
+    - 部门1
+    - True
+
+test_delete_dept:
+  -
+    - 部门2
+    - True
+  -
+    - 部门3
+    - True

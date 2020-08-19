@@ -1,0 +1,18 @@
+test_add_member:
+  -  # 正向流程
+    - 杜宁
+    - 123456
+    - 13109878902
+    - 123456@qq.com
+    - False
+  - # 异常流程
+    - ''
+    - ''
+    - ''
+    - ''
+    - False
+
+test_delete_member:
+  -
+    - 杜宁
+    - True
