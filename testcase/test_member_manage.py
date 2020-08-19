@@ -4,7 +4,8 @@ from page.index import Index
 
 
 class TestAddressBook:
-    data = BasePage.yaml_load('data/member_manage.data.yaml')
+    data = BasePage.yaml_load('../data/member_manage.data.yaml')
+    step = BasePage.yaml_load('../data/member_manage.step.yaml')
 
     def setup_class(self):
         self.dx = Index()
@@ -22,3 +23,9 @@ class TestAddressBook:
     def test_delete_member(self, name, expect):
         res = self.dx.address_book().member_manage().delete_member('杜宁')
         assert res == expect
+
+    @pytest.mark.parametrize('name, acct_id, phone, mail, expect', data['test_add_member'])
+    def test_add_member_step(self, name, acct_id, phone, mail, expect):
+        BasePage.params = {'name': name, 'acct_id': acct_id, 'phone': phone, 'mail': mail}
+        self.dx.address_book().member_manage().steps(self.step['add_member'])
+

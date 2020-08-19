@@ -1,4 +1,9 @@
 import configparser
+import random
+import re
+
+from selenium.webdriver.common.by import By
+
 
 class Tool:
 
@@ -16,3 +21,19 @@ class Tool:
         # host = cf.get(name, 'host')  # 获取host
         items = dict(cf.items(name))  # 获取section名为Mysql-Database所对应的全部键值对
         return items
+
+    def set_records(self, driver, css):
+        """
+        re 正则模块 返回记录总条数
+        :param css: 定位
+        :return: 总条数 int
+        """
+        ob = driver.find_element(By.CSS_SELECTOR, css).text
+        res = re.search(r'共(.*)条', ob)
+        return res.group(1)
+
+    @classmethod
+    def mobile(cls):
+        # 随机生成122开头手机号
+        mobile = '122' + ''.join(random.choice("0123456789") for i in range(8))
+        return mobile

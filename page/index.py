@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+
+from common.log import Log
 from page.address_book.index import AddressBook
 from page.application_management.index import ApplicationManagement
 from page.basepage import BasePage
@@ -19,6 +21,7 @@ class Index(BasePage):
         return HomePage(self.driver)
 
     def address_book(self):
+        Log().warn('点击通讯录')
         self.find(By.XPATH, '//*[text()="通讯录"]').click()
         return AddressBook(self.driver)
 

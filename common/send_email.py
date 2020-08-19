@@ -16,7 +16,6 @@ import time
 from common.other import Tool
 
 
-
 # 自动发送邮件
 class SendEmail:
     data = Tool().get_config('common/config.ini', 'Email')
@@ -33,7 +32,7 @@ class SendEmail:
         mail_server = self.data['mail_server']
         now = time.strftime("%Y-%m-%d %H_%M_%S")
         # 邮件标题
-        subject = '企业微信UI自动化测试报告测试报告' + now
+        subject = self.data['title'] + now
         # 发件人的邮箱及邮箱授权码
         username = self.data['username']
         password = self.data['password']  # 注意这里是邮箱的授权码而不是邮箱密码
